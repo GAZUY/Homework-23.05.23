@@ -9,162 +9,131 @@
 Учтите, что через каждые 4 часа дороги водителю необхо-
 димо делать перерыв на 1 час.
 */
-/*
-const myCar = {
+var myCar = {
     manufacturer: 'Honda',
     model: 'Pilot',
     yearOfRelease: 2008,
-    averageSpeed: 95,
-}
-alert (`Производитель: ${myCar.manufacturer}  модель: ${myCar.model}  Год выпуска: ${myCar.yearOfRelease}  Cредняя скорость: ${myCar.averageSpeed}км/ч ` )
-
-document.write (`<p>Производитель: ${myCar.manufacturer}</p><p> модель: ${myCar.model}</p><p> Год выпуска: ${myCar.yearOfRelease}</p><p> Cредняя скорость: ${myCar.averageSpeed}км/ч</p> ` )
-
-function calculationOfTravelTime ( km: any ) {
+    averageSpeed: 95
+};
+alert("\u041F\u0440\u043E\u0438\u0437\u0432\u043E\u0434\u0438\u0442\u0435\u043B\u044C: " + myCar.manufacturer + "  \u043C\u043E\u0434\u0435\u043B\u044C: " + myCar.model + "  \u0413\u043E\u0434 \u0432\u044B\u043F\u0443\u0441\u043A\u0430: " + myCar.yearOfRelease + "  C\u0440\u0435\u0434\u043D\u044F\u044F \u0441\u043A\u043E\u0440\u043E\u0441\u0442\u044C: " + myCar.averageSpeed + "\u043A\u043C/\u0447 ");
+document.write("<p>\u041F\u0440\u043E\u0438\u0437\u0432\u043E\u0434\u0438\u0442\u0435\u043B\u044C: " + myCar.manufacturer + "</p><p> \u043C\u043E\u0434\u0435\u043B\u044C: " + myCar.model + "</p><p> \u0413\u043E\u0434 \u0432\u044B\u043F\u0443\u0441\u043A\u0430: " + myCar.yearOfRelease + "</p><p> C\u0440\u0435\u0434\u043D\u044F\u044F \u0441\u043A\u043E\u0440\u043E\u0441\u0442\u044C: " + myCar.averageSpeed + "\u043A\u043C/\u0447</p> ");
+function calculationOfTravelTime(km) {
     if (km == 0) {
-        return 0
+        return 0;
     }
-    let h
-    let m
-    let s
-    let r
-   
-    for ( h = 0; km >= myCar.averageSpeed; h ++ ) {
-        km = km - myCar.averageSpeed
+    var h;
+    var m;
+    var s;
+    var r;
+    for (h = 0; km >= myCar.averageSpeed; h++) {
+        km = km - myCar.averageSpeed;
     }
-    let f = h
-    for (r = 0; f >=4; r ++) {
-        f=f-4
+    var f = h;
+    for (r = 0; f >= 4; r++) {
+        f = f - 4;
     }
-    for ( m =0; km >= (myCar.averageSpeed/60); m ++) {
-        km = km - (myCar.averageSpeed/60)
+    for (m = 0; km >= (myCar.averageSpeed / 60); m++) {
+        km = km - (myCar.averageSpeed / 60);
     }
-    for (s = 0; km >= (myCar.averageSpeed/3600); s ++) {
-        km = km - (myCar.averageSpeed/3600)
+    for (s = 0; km >= (myCar.averageSpeed / 3600); s++) {
+        km = km - (myCar.averageSpeed / 3600);
     }
-    if (m == 0 && s == 0){
-        h = h + r - 1
-    }else {
-        h = h + r
+    if (m == 0 && s == 0) {
+        h = h + r - 1;
     }
-    if (h<10){
-        h= '0'+h
+    else {
+        h = h + r;
     }
-    if (m<10){
-        m= '0'+m
+    if (h < 10) {
+        h = '0' + h;
     }
-    if (s<10){
-        s='0'+s
+    if (m < 10) {
+        m = '0' + m;
     }
-    if (r == 0 ) {
-        return 'Ваше время в пути составит: '+h +':'+ m +':'+ s
-    }else{
-        return 'Ваше время в пути с учётом отдыха каждый пятый час составит: '+h +':'+ m +':'+ s
+    if (s < 10) {
+        s = '0' + s;
+    }
+    if (r == 0) {
+        return 'Ваше время в пути составит: ' + h + ':' + m + ':' + s;
+    }
+    else {
+        return 'Ваше время в пути с учётом отдыха каждый пятый час составит: ' + h + ':' + m + ':' + s;
     }
 }
-let timeToOvercome = +(prompt ('Введите расстояние в км')as string)
+var timeToOvercome = +prompt('Введите расстояние в км');
 // @ts-ignore
-document.write (calculationOfTravelTime(timeToOvercome))
-*/
-//====================================================================================================================
-/*
-Задание 2
-Создать объект, хранящий в себе отдельно числитель и зна-
-менатель дроби, и следующие функции для работы с этим объ-
-ектом.
-1. Функция сложения 2-х объектов-дробей.
-2. Функция вычитания 2-х объектов-дробей.
-3. Функция умножения 2-х объектов-дробей.
-4. Функция деления 2-х объектов-дробей.
-5. Функция сокращения объекта-дроби.
-*/
-/*
-type Fraction = {
-    numerator: number,
-    denominator: number
-  }
-  
-  const fraction1:Fraction = {
+document.write(calculationOfTravelTime(timeToOvercome));
+var fraction1 = {
     numerator: 2,
     denominator: 5
-  }
-  const fraction2: Fraction = {
+};
+var fraction2 = {
     numerator: 2,
     denominator: 8
-  }
-  
-  console.log(`${fraction1.numerator}/${fraction1.denominator} and ${fraction2.numerator}/${fraction2.denominator}`)
-  
-  function maxDenominator(f: Fraction) {
-    const min = f.numerator < f.denominator ? f.numerator : f.denominator
-    for (let i = min; i > 1; i--) {
-      if (f.numerator % i == 0 && f.denominator % i == 0) return i
+};
+console.log(fraction1.numerator + "/" + fraction1.denominator + " and " + fraction2.numerator + "/" + fraction2.denominator);
+function maxDenominator(f) {
+    var min = f.numerator < f.denominator ? f.numerator : f.denominator;
+    for (var i = min; i > 1; i--) {
+        if (f.numerator % i == 0 && f.denominator % i == 0)
+            return i;
     }
-    return 1
-  }
-  
-  function fractionReduction(f: Fraction) {
-    const denominator = maxDenominator(f)
-    f.numerator /= denominator
-    f.denominator /= denominator
-    return f
-  }
-  
-  function fractionSubtraction(f1: Fraction, f2: Fraction) {
-    const ajusted = fractionAjust(f1, f2)
-    const sub = {
-      numerator: ajusted.f1.numerator - ajusted.f2.numerator,
-      denominator: f1.denominator,
-    }
-    return fractionReduction(sub)
-  }
-  
-  function fractionAjust(f1: Fraction, f2: Fraction) {
-    const f1D = f1.denominator
-    const f2D = f2.denominator
-    f1.numerator *= f2D
-    f1.denominator *= f2D
-    f2.numerator *= f1D
-    f2.denominator *= f1D
-    return {f1, f2}
-  }
-  
-  function fractionMultiplication(f1: Fraction, f2: Fraction) {
-    const mult = {
-      numerator: f1.numerator * f2.numerator,
-      denominator: f1.denominator * f2.denominator,
-    }
-    return fractionReduction(mult)
-  }
-  
-  function fractionDivision(f1: Fraction, f2: Fraction) {
-    const div = {
-      numerator: f1.numerator * f2.denominator,
-      denominator: f1.denominator * f2.numerator,
-    }
-    return fractionReduction(div)
-  }
-  
-  function fractionSum(f1: Fraction, f2: Fraction) {
-    const ajusted = fractionAjust(f1, f2)
-    const sum = {
-      numerator: ajusted.f1.numerator + ajusted.f2.numerator,
-      denominator: ajusted.f1.denominator
-    }
-    return fractionReduction(sum)
-  }
-  
-  const sumResult = fractionSum(fraction1, fraction2)
-  const subResult = fractionSubtraction(fraction1, fraction2)
-  const multResult = fractionMultiplication(fraction1, fraction2)
-  const divResult = fractionDivision(fraction1, fraction2)
-  document.write(`<p> sum = ${sumResult.numerator}/${sumResult.denominator} </p>`)
-  document.write(`<p> sub = ${subResult.numerator}/${subResult.denominator} </p>`)
-  document.write(`<p> mult = ${multResult.numerator}/${multResult.denominator} </p>`)
-  document.write(`<p> div = ${divResult.numerator}/${divResult.denominator} </p>`)
-
-  //================================================================================================================
-*/
+    return 1;
+}
+function fractionReduction(f) {
+    var denominator = maxDenominator(f);
+    f.numerator /= denominator;
+    f.denominator /= denominator;
+    return f;
+}
+function fractionSubtraction(f1, f2) {
+    var ajusted = fractionAjust(f1, f2);
+    var sub = {
+        numerator: ajusted.f1.numerator - ajusted.f2.numerator,
+        denominator: f1.denominator
+    };
+    return fractionReduction(sub);
+}
+function fractionAjust(f1, f2) {
+    var f1D = f1.denominator;
+    var f2D = f2.denominator;
+    f1.numerator *= f2D;
+    f1.denominator *= f2D;
+    f2.numerator *= f1D;
+    f2.denominator *= f1D;
+    return { f1: f1, f2: f2 };
+}
+function fractionMultiplication(f1, f2) {
+    var mult = {
+        numerator: f1.numerator * f2.numerator,
+        denominator: f1.denominator * f2.denominator
+    };
+    return fractionReduction(mult);
+}
+function fractionDivision(f1, f2) {
+    var div = {
+        numerator: f1.numerator * f2.denominator,
+        denominator: f1.denominator * f2.numerator
+    };
+    return fractionReduction(div);
+}
+function fractionSum(f1, f2) {
+    var ajusted = fractionAjust(f1, f2);
+    var sum = {
+        numerator: ajusted.f1.numerator + ajusted.f2.numerator,
+        denominator: ajusted.f1.denominator
+    };
+    return fractionReduction(sum);
+}
+var sumResult = fractionSum(fraction1, fraction2);
+var subResult = fractionSubtraction(fraction1, fraction2);
+var multResult = fractionMultiplication(fraction1, fraction2);
+var divResult = fractionDivision(fraction1, fraction2);
+document.write("<p> sum = " + sumResult.numerator + "/" + sumResult.denominator + " </p>");
+document.write("<p> sub = " + subResult.numerator + "/" + subResult.denominator + " </p>");
+document.write("<p> mult = " + multResult.numerator + "/" + multResult.denominator + " </p>");
+document.write("<p> div = " + divResult.numerator + "/" + divResult.denominator + " </p>");
+//================================================================================================================
 /*
   Задание 3
 Создать объект, описывающий время (часы, минуты, секун-

@@ -9,7 +9,7 @@
 Учтите, что через каждые 4 часа дороги водителю необхо-
 димо делать перерыв на 1 час.
 */
-/*
+
 const myCar = {
     manufacturer: 'Honda',
     model: 'Pilot',
@@ -65,7 +65,7 @@ function calculationOfTravelTime ( km: any ) {
 let timeToOvercome = +(prompt ('Введите расстояние в км')as string)
 // @ts-ignore
 document.write (calculationOfTravelTime(timeToOvercome))
-*/
+
 
 //====================================================================================================================
 
@@ -82,7 +82,7 @@ document.write (calculationOfTravelTime(timeToOvercome))
 4. Функция деления 2-х объектов-дробей.
 5. Функция сокращения объекта-дроби.
 */
-/*
+
 type Fraction = {
     numerator: number,
     denominator: number
@@ -168,7 +168,7 @@ type Fraction = {
   document.write(`<p> div = ${divResult.numerator}/${divResult.denominator} </p>`) 
 
   //================================================================================================================
-*/
+
 /*
   Задание 3
 Создать объект, описывающий время (часы, минуты, секун-
