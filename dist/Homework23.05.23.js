@@ -150,6 +150,8 @@ document.write("<p> div = " + divResult.numerator + "/" + divResult.denominator 
 времени «20:30:45» добавить 30 секунд, то должно получиться
 «20:31:15», а не «20:30:75».
  */
+//==================================================================================
+// Вариант 1
 var number_of_hours = +prompt('Введите на сколько часов хотите изменить время');
 var number_of_minuten = +prompt('Введите на сколько минут хотите изменить время');
 var number_of_seconds = +prompt('Введите на сколько секунд хотите изменить время');
@@ -181,3 +183,56 @@ function changeThreeTimeParameters(number_of_hours, number_of_minuten, number_of
     return (date4.toLocaleTimeString("ru-RU"));
 }
 document.write("<p>\u0418\u0437\u043C\u0435\u043D\u0451\u043D\u043D\u043E\u0435 \u0432\u0440\u0435\u043C\u044F \u043D\u0430 \u0436\u0435\u043B\u0430\u0435\u043C\u043E\u0435 \u043A\u043E\u043B\u043B\u0438\u0447\u0435\u0441\u0442\u0432\u043E \u0447\u0430\u0441\u043E\u0432, \u043C\u0438\u043D\u0443\u0442 \u0438 \u0441\u0435\u043A\u0443\u043D\u0434: " + changeThreeTimeParameters(number_of_hours, number_of_minuten, number_of_seconds) + "</p>");
+//==========================================================================
+//Вариант 2
+var h;
+var m;
+var s;
+function printTheTime(d) {
+    s = d.getSeconds();
+    m = d.getMinutes();
+    h = d.getHours();
+    if (h < 10) {
+        h = '0' + h;
+    }
+    if (m < 10) {
+        m = '0' + m;
+    }
+    if (s < 10) {
+        s = '0' + s;
+    }
+    return h + ':' + m + ':' + s;
+}
+document.write('настоящее время ' + printTheTime(new Date()));
+console.log(h, m, s);
+function countingTheTime(h, m, s, differenceHours, differenceMinutes, differenceSeconds) {
+    var time = h * 3600 + m * 60 + s;
+    var differenceTime = differenceHours * 3600 + differenceMinutes * 60 + differenceSeconds;
+    var sumTime = time + differenceTime;
+    var h1;
+    var m1;
+    var s1;
+    h1 = Math.floor((sumTime / 3600)) % 24;
+    m1 = Math.floor((sumTime % 3600) / 60);
+    s1 = (sumTime % 3600) % 60;
+    if (h1 < 10) {
+        h1 = '0' + h1;
+    }
+    if (m1 < 10) {
+        m1 = '0' + m1;
+    }
+    if (s1 < 10) {
+        s1 = '0' + s1;
+    }
+    return h1 + ':' + m1 + ':' + s1;
+}
+var differenceHours = 13;
+document.write("<p>\u041A\u043E\u043B\u043B\u0438\u0447\u0435\u0441\u0442\u0432\u043E \u0447\u0430\u0441\u043E\u0432 \u0434\u043B\u044F \u0438\u0437\u043C\u0435\u043D\u0435\u043D\u0438\u044F \u0432\u0440\u0435\u043C\u0435\u043D\u0438: " + differenceHours + "</p>");
+document.write("<p>\u0418\u0437\u043C\u0435\u043D\u0451\u043D\u043D\u043E\u0435 \u0432\u0440\u0435\u043C\u044F \u043D\u0430 \u0447\u0430\u0441\u044B: " + countingTheTime(h, m, s, differenceHours, 0, 0) + " </p>");
+var differenceMinutes = 85;
+document.write("<p>\u041A\u043E\u043B\u043B\u0438\u0447\u0435\u0441\u0442\u0432\u043E \u043C\u0438\u043D\u0443\u0442 \u0434\u043B\u044F \u0438\u0437\u043C\u0435\u043D\u0435\u043D\u0438\u044F \u0432\u0440\u0435\u043C\u0435\u043D\u0438: " + differenceMinutes + "</p>");
+document.write("<p>\u0418\u0437\u043C\u0435\u043D\u0451\u043D\u043D\u043E\u0435 \u0432\u0440\u0435\u043C\u044F \u043D\u0430 \u043C\u0438\u043D\u0443\u0442\u044B: " + countingTheTime(h, m, s, 0, differenceMinutes, 0) + " </p>");
+var differenceSeconds = 420;
+document.write("<p>\u041A\u043E\u043B\u043B\u0438\u0447\u0435\u0441\u0442\u0432\u043E \u0441\u0435\u043A\u0443\u043D\u0434 \u0434\u043B\u044F \u0438\u0437\u043C\u0435\u043D\u0435\u043D\u0438\u044F \u0432\u0440\u0435\u043C\u0435\u043D\u0438: " + differenceSeconds + "</p>");
+document.write("<p>\u0418\u0437\u043C\u0435\u043D\u0451\u043D\u043D\u043E\u0435 \u0432\u0440\u0435\u043C\u044F \u043D\u0430 \u0441\u0435\u043A\u0443\u043D\u0434\u044B: " + countingTheTime(h, m, s, 0, 0, differenceSeconds) + " </p>");
+document.write("<p>\u0418\u0437\u043C\u0435\u043D\u0451\u043D\u043D\u043E\u0435 \u0432\u0440\u0435\u043C\u044F \u043D\u0430 \u0442\u0440\u0438 \u043F\u0430\u0440\u0430\u043C\u0435\u0442\u0440\u0430: " + countingTheTime(h, m, s, differenceHours, differenceMinutes, differenceSeconds) + " </p>");

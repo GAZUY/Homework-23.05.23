@@ -185,6 +185,8 @@ type Fraction = {
 времени «20:30:45» добавить 30 секунд, то должно получиться
 «20:31:15», а не «20:30:75».
  */
+//==================================================================================
+// Вариант 1
 
 let number_of_hours = +(prompt ('Введите на сколько часов хотите изменить время')as string)
 let number_of_minuten = +(prompt ('Введите на сколько минут хотите изменить время')as string)
@@ -231,13 +233,66 @@ function changeThreeTimeParameters (number_of_hours, number_of_minuten, number_o
 
 }
 document.write (`<p>Изменённое время на желаемое колличество часов, минут и секунд: ${changeThreeTimeParameters (number_of_hours, number_of_minuten, number_of_seconds)}</p>`)
+//==========================================================================
+
+//Вариант 2
+
+let h
+let m
+let s
 
 
- 
+function printTheTime (d) {
+     s =d.getSeconds()
+     m =d.getMinutes()
+     h =d.getHours()
+    if (h<10){
+        h= '0'+h
+    }
+    if (m<10){
+        m= '0'+m
+    }
+    if (s<10){
+        s='0'+s
+    }
+    return h +':'+ m +':'+ s
+}
+document.write ('настоящее время ' + printTheTime(new Date ()))
+console.log (h,m,s)
 
 
+function countingTheTime (h,m,s,differenceHours, differenceMinutes, differenceSeconds) {
+    let time = h*3600 + m*60 + s
+    let differenceTime = differenceHours*3600 + differenceMinutes*60 + differenceSeconds
+    let sumTime = time + differenceTime
+    let h1
+    let m1
+    let s1
+    h1 =Math.floor((sumTime/3600))%24
+    m1 =Math.floor((sumTime%3600)/60)
+    s1 =(sumTime%3600)%60
+   if (h1<10){
+       h1= '0'+h1
+    }
+   if (m1<10){
+       m1 = '0'+m1
+   }
+   if (s1<10){
+       s1='0'+s1
+   }
+   return h1+':'+m1+':'+s1
+}
 
+const differenceHours = 13
+document.write (`<p>Колличество часов для изменения времени: ${differenceHours}</p>`)
+document.write (`<p>Изменённое время на часы: ${countingTheTime(h,m,s,differenceHours,0,0)} </p>`)
 
+const differenceMinutes = 85
+document.write (`<p>Колличество минут для изменения времени: ${differenceMinutes}</p>`)
+document.write (`<p>Изменённое время на минуты: ${countingTheTime(h,m,s,0,differenceMinutes,0)} </p>`)
 
+const differenceSeconds = 420
+document.write (`<p>Колличество секунд для изменения времени: ${differenceSeconds}</p>`)
+document.write (`<p>Изменённое время на секунды: ${countingTheTime(h,m,s,0,0,differenceSeconds)} </p>`)
 
-
+document.write (`<p>Изменённое время на три параметра: ${countingTheTime(h,m,s,differenceHours,differenceMinutes,differenceSeconds)} </p>`)
